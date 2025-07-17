@@ -4,43 +4,46 @@ AOS.init({
   once: true
 });
 
-// Manejo de formulario
+// Manejo de formulario para WhatsApp
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
+  const form = document.getElementById("whatsapp-form");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const nombre = form.querySelector('input[placeholder="Nombre completo"]').value.trim();
-    const correo = form.querySelector('input[type="email"]').value.trim();
-    const telefono = form.querySelector('input[type="tel"]').value.trim();
-    const mensaje = form.querySelector("textarea").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const correo = document.getElementById("correo").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const consulta = document.getElementById("consulta").value.trim();
 
-    if (!nombre || !correo || !telefono || !mensaje) {
+    if (!nombre || !correo || !telefono || !consulta) {
       showModal("⚠️ Por favor, completa todos los campos.", false);
       return;
     }
 
-    // ✉️ Aquí podrías enviar a EmailJS, Sheet o backend
-    showModal("✅ ¡Gracias por tu solicitud! Te contactaremos pronto.", true);
+    const mensaje = `Hola, soy ${nombre}, mi correo es ${correo}, mi número es ${telefono}. ${consulta}`;
+    const numeroDestino = "50370656561"; 
+    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
 
-    form.reset();
+    showModal("✅ Abriendo WhatsApp...", true);
+
+    setTimeout(() => {
+      window.open(url, "_blank");
+      form.reset();
+    }, 1500);
   });
 });
 
-// Función para mostrar modal de éxito o error
+// Modal de feedback visual
 function showModal(texto, exito) {
   const modal = document.createElement("div");
   modal.classList.add("modal-feedback");
   modal.innerHTML = `<div class="modal-content ${exito ? "exito" : "error"}">${texto}</div>`;
   document.body.appendChild(modal);
 
-  setTimeout(() => {
-    modal.classList.add("visible");
-  }, 100);
-
+  setTimeout(() => modal.classList.add("visible"), 100);
   setTimeout(() => {
     modal.classList.remove("visible");
-    setTimeout(() => modal.remove(), 400);
-  }, 3000);
+    setTimeout(() => modal.remove(), 300);
+  }, 2500);
 }

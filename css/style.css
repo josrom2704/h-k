@@ -69,3 +69,30 @@ body {
       color: #bbdefb;
       text-decoration: none;
     }
+
+  .modal-feedback {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal-feedback.visible {
+  opacity: 1;
+}
+.modal-content {
+  background: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+.modal-content.exito {
+  border-left: 6px solid #4caf50;
+}
+.modal-content.error {
+  border-left: 6px solid #f44336;
+}
+
