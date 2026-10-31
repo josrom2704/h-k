@@ -10,12 +10,12 @@ export const site = {
   description:
     "Limpieza de hogar, fontanería, electricidad, jardinería y organización del hogar. Presupuesto sin compromiso, precio cerrado y garantía de satisfacción.",
 
-  // TODO: teléfono real (formato visible)
-  phoneDisplay: "+34 600 000 000",
-  // TODO: teléfono real (formato enlace tel:, sin espacios)
-  phoneHref: "+34600000000",
-  // TODO: número de WhatsApp con prefijo de país, sin "+" ni espacios
-  whatsapp: "34600000000",
+  // Teléfono (formato visible)
+  phoneDisplay: "+503 7065-6561",
+  // Teléfono (formato enlace tel:, sin espacios)
+  phoneHref: "+50370656561",
+  // WhatsApp con prefijo de país, sin "+" ni espacios
+  whatsapp: "50370656561",
   // TODO: email real
   email: "hola@houseandkeeping.com",
   // TODO: ciudad / país
