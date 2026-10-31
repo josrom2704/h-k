@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
-export const viewport: Viewport = { themeColor: "#160f0d" };
+export const viewport: Viewport = { themeColor: "#0d47a1" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

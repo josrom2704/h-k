@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Brand from "./Brand";
-import { ChevronIcon, CloseIcon, MenuIcon } from "./Icons";
+import { CloseIcon, MenuIcon, PlusIcon } from "./Icons";
 import { services } from "@/lib/site";
 
 const links = [
@@ -46,17 +46,12 @@ export default function Header() {
     };
   }, []);
 
-  // Bloquear scroll del body con el menú móvil abierto
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-  }, [mobileOpen]);
-
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
   const svcActive = pathname.startsWith("/servicios");
 
   return (
     <header className="header">
-      <div className="container header-inner">
+      <div className="header-bar">
         <Brand />
 
         <nav className="nav" aria-label="Principal">
@@ -69,7 +64,7 @@ export default function Header() {
               aria-controls="menu-servicios"
               onClick={() => setDropOpen((o) => !o)}
             >
-              Servicios <ChevronIcon />
+              Servicios <PlusIcon className="nav-plus" />
             </button>
             {dropOpen && (
               <ul className="dropdown-panel" id="menu-servicios">
@@ -92,7 +87,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link href="/contacto#reservar" className="btn btn--accent btn--sm header-cta">RESERVAR</Link>
+        <Link href="/contacto#reservar" className="header-cta">Reservar</Link>
 
         <button
           type="button"
@@ -105,7 +100,6 @@ export default function Header() {
           {mobileOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
       </div>
-      <span className="header-notch" aria-hidden="true" />
 
       {mobileOpen && (
         <nav className="mobile-menu" id="menu-movil" aria-label="Menú móvil">
@@ -116,7 +110,7 @@ export default function Header() {
             aria-expanded={mobileSvcOpen}
             onClick={() => setMobileSvcOpen((o) => !o)}
           >
-            Servicios <ChevronIcon />
+            Servicios <PlusIcon className="nav-plus" />
           </button>
           {mobileSvcOpen && (
             <ul className="mobile-sub">
@@ -131,7 +125,7 @@ export default function Header() {
               {l.label}
             </Link>
           ))}
-          <Link href="/contacto#reservar" className="btn btn--accent">RESERVAR</Link>
+          <Link href="/contacto#reservar" className="btn btn--accent">Reservar</Link>
         </nav>
       )}
     </header>

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Brand />
+            <Brand tagline />
             <p>
               Limpieza, fontanería, electricidad, jardinería y organización para tu hogar.
               Profesionalismo con trato humano, precio cerrado y garantía en cada trabajo.

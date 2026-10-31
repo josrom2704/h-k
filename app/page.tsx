@@ -30,7 +30,7 @@ export default function Home() {
         </div>
         <div className="container hero-inner">
           <div className="hero-content">
-            <span className="pill">Presupuesto sin compromiso</span>
+            <span className="pill pill--sky">Presupuesto sin compromiso</span>
             <h1 id="hero-title" className="hero-title">
               <span>Tu casa,</span>
               <span className="accent">impecable hoy.</span>
@@ -43,7 +43,7 @@ export default function Home() {
               <a className="btn btn--wa" href={waLink("Hola House & Keeping, quiero pedir un presupuesto sin compromiso.")} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon /> Escribir por WhatsApp
               </a>
-              <a className="btn btn--outline" href={telLink}>
+              <a className="btn btn--ghost" href={telLink}>
                 <PhoneIcon /> Llamar
               </a>
             </div>
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* ===== 3. SERVICIOS ===== */}
-      <section id="servicios" className="section section--surface notch" style={{ ["--notch-color" as string]: "var(--bg)" }} aria-labelledby="servicios-title">
+      <section id="servicios" className="section section--surface notch" style={{ ["--notch-color" as string]: "var(--navy)" }} aria-labelledby="servicios-title">
         <div className="container">
           <div className="section-head reveal">
             <span className="pill pill--outline">Nuestros servicios</span>

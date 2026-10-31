@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="page-hero" style={{ padding: "120px 0" }}>
+    <section className="page-hero" style={{ paddingBottom: 120 }}>
       <div className="container">
         <span className="pill">Error 404</span>
         <h1>Página no encontrada</h1>
